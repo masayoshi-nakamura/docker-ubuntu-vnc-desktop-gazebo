@@ -1,8 +1,11 @@
 FROM ubuntu:14.04.3
-MAINTAINER Doro Wu <fcwu.tw@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
+
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl -ssL http://get.gazebosim.org | sh
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
